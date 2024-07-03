@@ -1,0 +1,53 @@
+ .................Adding mutations to our type def.................
+
+ const typeDefs = gql`
+  type User {
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+  type Query {
+    hello: String!
+    randomNumber: Int!
+    queryUsers: [User]!
+  }
+  # Mutations must be in their own type
+  type Mutation {
+    # We are creating a mutation called "addUser" that takes in 3 arguments
+    # These arguments will be available to our resolver, which will push the new user to the "users" array
+    # Notice that this mutation will return a single User, which will be the one that was created
+    addUser(firstName:String!, lastName:String!, email:String!): User!
+  }
+`;
+
+Here we have created a mutation which will add a user 
+
+1. We are creating a new mutation named addUser
+addUser takes in three arguments: firstName, lastName, and email. 
+All three arguments are of type string and required (specified in the parentheses)
+
+
+2. Here is the resolver for our mutation
+const resolvers = {
+  Query: {
+    hello: () => "Hello world!",
+    randomNumber: () => Math.round(Math.random() * 10),
+    queryUsers: () => users,
+  },
+  // All mutation resolvers must be in the Mutation object; just like our typeDefs
+  Mutation: {
+    // Once again notice the name of the resolver matches what we defined in our typeDefs
+    // The first argument to any resolver is the parent, which is not important to us here
+    // The second argument, args, is an object containing all the arguments passed to the resolver
+    addUser: (parent, args) => {
+      users.push(args); // Push the new user to the users array
+      return args; // Returns the arguments provided, this is the new user we just added
+    },
+  },
+};
+
+Since our “database” is just an array of objects, we can simply push the args object to the users array.
+Our mutation needs to return the new user that was created. We can do that by returning the args object.
+
+
+Now just like the type defs mutations should have the same name inside the resolvers 

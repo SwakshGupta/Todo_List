@@ -1,0 +1,60 @@
+1. SQL (Structured Query Language) is a standardized programming language used for managing and manipulating relational databases. 
+
+It is designed to handle structured data, which consists of data stored in tables with rows and columns. 
+
+SQL provides a way to query, update, and manage data in a database, making it an essential tool for database administrators, developers, and data analysts.
+
+
+2. So sql is a langauge through which we can communicate with our database and can make changes by typing keywords 
+
+
+Docker with postgreSQL.............
+
+# Run the PostgreSQL container (you already did this)
+docker run --name some-postgres -e POSTGRES_PASSWORD=slogar123 -d postgres
+
+# Access the bash shell in the running container
+docker exec -it some-postgres bash
+
+# Switch to the postgres user
+su - postgres
+
+# Connect to the PostgreSQL instance using psql
+psql
+
+postgreSQL...........................
+
+
+\l to check all the databases and \q to exit the databases
+
+1.  CREATE DATABASE (name of the database)
+
+2. /c (name of database) to checl whether the database is connected to the postgreSQL
+
+3. /! cls to clear the terminal
+
+4. To createa a table in the database CREATE TABLE (name of database) (
+
+now fill the column name of the table with every column name filled  type , and then enter
+when all the columns filled write a semicolon to stop the process of filling 
+
+5.  age INT,
+    dob DATE,
+    name VARCHAR(255) );   in this way we have created a table of three column first we have to write the name
+
+    and then write the data type 
+
+
+6. \dt to display the table 
+
+7. to insert data into the tables we can run  the command  INSERT INTO STUDENTS (name,email,age,data)
+
+8. To check what is inserted in the data base use the command
+
+SELECT * FROM students; (students is the name of databse)
+
+here * implies everything
+
+9. 
+
+

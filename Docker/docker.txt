@@ -1,0 +1,50 @@
+1. So basically docker provide us with a container where we can keep our code  say we were using a perticualr version of 
+node js and we have stored every bit of code inside that container
+
+2. Now if we want to share the code different user we can just this container with him and code with same configuration as previous 
+will be installed inside the user machine 
+
+3. We can pull our docker command inside the docker registry and later we can pull everything from this docker registry
+
+4. In short, Docker makes it easier to develop, share, and run applications by packaging them into containers that work consistently across different environments
+
+5. One of the most important aspects of container isolation is that each container interacts with its own, private filesystem; this filesystem is provided by a Docker image. 
+An image includes everything needed to run an application — the code or binary, runtimes, dependencies, and any other filesystem objects required.
+
+6. Each application runs separately from the other. 
+Docker solves the dependency problem by keeping the dependency contained inside the containers. 
+It unites developers against dependency of their project
+
+## docker image includes everything needed to run an applicaiton (means which operating system etc)
+
+## Ubuntu:
+
+Ubuntu is a popular, open-source operating system based on Linux. 
+It's designed to be user-friendly, secure, and versatile, making it suitable for desktops, servers, and other devices.
+
+
+
+FUNCTIONING OF DOCKER ....................
+
+Here i have written a  code to create a docker file  for a simple node server having index.js file 
+
+
+1. FROM node:latest  (This coplede tell us the base image means we have to tell the run enviroment)
+
+2. COPY index.js /home/app/index.js (we have copied our index.js file in our container index.js file)
+
+3.  WORKDIR /home/app/ (here we have changed to our working directory)
+
+4.  RUN npm install ( since we hav'nt copied the node modules so to install them )
+
+5. EXPOSE PORT ( if we run the app then app will run only in the docker container  so to expose it outside we run this EXPOSE no. of port )
+
+6.  CMD["node","index"] (here we have running the command node index.js )
+
+
+Now lets build the docker 
+
+docker build -t todo . (docker build is the command -t is tag and todo is the name of image dot means the docker file is in same directory )
+
+
+

@@ -1,0 +1,28 @@
+.............................PORT MAPPING............................
+
+1. Docker containers are isolated so if our application is running on port 8000 then it will not render in browser 
+with port 8000
+
+2. For that we have to expose the port to outer enviroment 
+
+3. To expose the port we use the commmand docker run -it -p 6000:8000  it means expose the port 8000 with the machine port 6000
+
+so from now own we can run our docker application in browser using the port 6000
+
+4. so we create image and  run on the container then we push that image so that other users can use that image to
+run on a container 
+
+5. We write everything on the dockerfile then we convert that file into image [ docker built -t (image_name) ]
+
+we can set any image name inside the docker 
+
+6. now to run this image in a container we use the command 
+
+docker run -it (image_name)  it will  create a new container for that docker image but before starting a container do 
+the port mapping first 
+
+7. docker run -it -p 8000:8000 (image_name) to run that image 
+
+8. if you have updated your code and want to update the docker file then run same commmand 
+
+docker built -t (image_name)

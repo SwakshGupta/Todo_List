@@ -1,0 +1,26 @@
+1. SQL stands for Structured Query Language SQL lets you access and manipulate databases
+
+2.RDBMS stands for Relational Database Management System.
+
+3.RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+
+4.The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.
+
+5. Most of the actions you need to perform on a database are done with SQL statements.
+
+6. SQl basically consist of commadns in english like this  SELECT * FROM Customers; -- this commands means select all the records from the customer table
+
+7. To select the data we use Select command  (SELECT customername FROM customer) here customer name is the field and customer is the name of the database
+
+8. if we want to return all the columns in the customer table then we can use the (SELECT * ) command
+
+9. if you want to extact a perticular record then you can use the WHERE keyword 
+
+10. SELECT * FROM Customers
+    WHERE Country='Mexico';  customer is the table name and mexico is the column name 
+
+11. SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition;   
+
+12. ////////////////// Read all the commands later  from the w3 school website

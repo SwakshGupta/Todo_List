@@ -1,0 +1,53 @@
+  Refer to the graphql medium article for better understanding
+  
+  
+  Apollo server:
+
+  Since GraphQL is just a query language, we need a library that will take care of the boilerplate code for us. 
+  Luckily, such a library already exists.
+
+  1. import the apollo library 
+
+  
+const { ApolloServer, gql } = require("apollo-server");
+
+Here, after importing ApolloServer and gql, we create a multiline GraphQL string containing our schema. 
+Most developers name their schema typeDefs because when we initialize ApolloServer later, we need to pass our schema to an object key with the same name
+
+const typeDefs = gql` // Our typeDefs are passed into a gql tag. This tag sterilizes our type definitions and makes them readable to Apollo Server.
+  
+  
+  type Query {  // The Query type lists all the possible queries that can be performed by our server.
+    hello: String!
+    randomNubmer: Int!
+  }
+
+  here is how our type def looks like 
+
+  // hello and randomNumber are two different queries.
+We define the type of the returned value after a colon (:). 
+In this case, hello returns a String type, and randomNumber returns an Integer type.
+
+
+2. Now after defining your schema as type Def's make resolver function which tells what to return after a specific query is called 
+
+
+   
+// When a query is called a resolver with the same name is run
+// The API returns whatever is returned by the resolver
+// We are using arrow functions so the "return" keyword is not required
+const resolvers = {
+  // The name of the resolver must match the name of the query in the typeDefs
+  Query: {
+    // When the hello query is invoked "Hello world" should be returned
+    hello: () => "Hello world!",
+    // When we call the randomNumber query, it should return a number between 0 and 10
+    randomNumber: () => Math.round(Math.random() * 10),
+  },
+};
+
+
+ 3. The resolvers should match our typeDefs.
+  Just like we had a Query type in our typeDefs, we have a Query object in our resolvers.
+
+4. Here in this example The Query object contains the resolvers that correspond to our typeDefs.

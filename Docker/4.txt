@@ -1,0 +1,28 @@
+Now we create layers in our docker file 
+
+1. Order of those files actually matter because if any layer which is not changing after a perticular change in the code 
+
+2. is kept below the layer which actually changes then by default both layer will work since the first layer was below the second
+
+3. This can consume time while creating a docker file so to avoid that we look at mounting of these layeres carefully 
+
+
+...............................Docker compose file .....................................
+
+1. Docker Compose is a tool for defining and running multi-container Docker applications. 
+With Docker Compose, you use a YAML file to configure your application’s services. 
+Then, with a single command, you create and start all the services from your configuration.
+
+
+2. create the docker-compose.yml this file will contains all the services and volume required by your project 
+
+3. docker-compose up --build  
+
+Build the images for the frontend and backend services if they don't already exist.
+Create and start the containers for both services.
+
+4. docker-compose down
+
+This command will stop and remove the containers, networks, and volumes defined in the docker-compose.yml file.
+
+

@@ -1,0 +1,56 @@
+// Here we will talk what we have did 
+
+1. Create an instance for apollo server and then pass in your type def and resolvers
+
+2. type def is where you create your schema and resovers is where you write  what the queries will return 
+
+when they are called resolvers should match with the type def 
+
+3. after creating all this you can run your server and in your browser apollo server will opens up 
+
+4. now we just have to perform a query in our apollo server we will get response to those queries only which we have sent 
+
+5. 
+
+const typeDefs = gql`
+  # GraphQL enables us to create our own types
+  # Notice the "User" type matches the shape of our "database" 
+  type User {
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+  type Query {
+    hello: String!
+    randomNumber: Int!
+    # This query is going to return all the users in our array
+    # Since our "database" is an array containing objects, we need to create a "User" type
+    # Brackets around the type indicates the query is returning an array
+    queryUsers: [User]!
+  }
+`;
+
+Here we have created two tyepdef one is User and other is Query both have different queries inside them 
+
+The queryUsers query returns an array of objects
+
+6. const resolvers = {
+  Query: {
+    hello: () => "Hello world!",
+    randomNumber: () => Math.round(Math.random() * 10),
+    // queryUsers simply returns our users array
+    queryUsers: () => users,
+  },
+}; this is the resovler which will work when a perticular query is called 
+
+  here is what we will write in the apollo server
+
+  query {
+  queryUsers {
+    firstName
+    lastName
+    email
+  }
+}
+
+  now we  have learnt how to read files 

@@ -1,0 +1,50 @@
+
+
+Cookies:
+
+Cookies are small pieces of data stored by the browser on the user's computer. 
+They are used to remember information about the user between page loads or visits.
+
+Purpose: Track user sessions, remember preferences, store login credentials, etc.
+
+Storage: Stored on the client's browser.
+Security: Can be made secure by using flags like HttpOnly
+
+
+Tokens:
+
+Tokens are data structures used to authenticate and authorize users. 
+They are often used in modern web applications, especially in stateless authentication mechanisms.
+
+Purpose: Authenticate and authorize users without storing session data on the server.
+Storage: Can be stored in localStorage, sessionStorage, or cookies on the client's browser.
+
+
+JWT tokens (JSON Web Token )
+
+JSON Web Tokens (JWT) are a type of token used for securely transmitting information between parties as a JSON object. 
+They are widely used for authentication and authorization in modern web applications.
+
+Structure of a JWT:
+
+
+A JWT consists of three parts separated by dots (.):
+
+Header: Contains the type of token (JWT) and the signing algorithm (e.g., HMAC SHA256, RSA).
+Payload: Contains the claims, which are statements about an entity (typically, the user) and additional data.
+Signature: Used to verify the token's integrity and authenticity.
+
+How does the JWT tokens works :
+
+1. After the user credentials a token is generated 
+
+2. after generation it is stored in the local storage or the cookies
+
+3. Then the token is authenticated based on this user is denied or acccepted by the server 
+
+
+Conclusion:
+
+JWTs are a powerful and flexible method for implementing authentication and authorization in web applications. 
+They provide a stateless, scalable, and secure way to manage user sessions, especially in distributed systems and single-page applications. 
+By understanding cookies, tokens, and the specific advantages of JWTs, you can choose the best authentication strategy for your application. 

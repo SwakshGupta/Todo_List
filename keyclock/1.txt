@@ -1,0 +1,17 @@
+1. Keyclock is authentication service means it allows you to authentication and access control in web application
+
+2. we can do single sign out , socail media integration measn we ca use google  account for integration , login/logout
+
+3. authentication only deals with login and logout whereas autherization deals with what user  can see and connot
+
+4. It is self-hosted we can use it on our own server and can be integrated with all the application
+
+5. Run a docker container contaning the image of keyclock 
+
+6. when you will open the browser and run the port you will come to keyclock admin dasboard 
+
+7. First create a realm where you will define all the settings 
+
+8. So there are two type of keys in keyclock private and public key when a user logs in a token is generated
+
+using the private key and in the backend we use the public key to verify the token 

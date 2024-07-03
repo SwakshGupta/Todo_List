@@ -1,0 +1,49 @@
+1. Through docker compose we can create, delete multiple containers
+
+2. for composing a docker we have to create a file docker-compose.yml 
+
+3. here we will add all the images which we want to run  we will specify the port number in which we want to run these services
+
+4. now after  making this file we will run a command  docker compose up 
+
+5. now This command will create containers and will  run those images inside the containers
+
+6. if permission denyed happens then do sudo docker compose up to run the website 
+
+7. Run docker compose down to destroy all the  containers running those images 
+
+......................Creating a docker compose........................
+
+1. write  the version then all the services and then all the enviroment variables watch piyush garg docker video for
+deeper understanding 
+
+2. A bridge established between the host machine and the docker so that host machine gets the bridge connectivity 
+
+through bridge our docker gets the ip address and can connnect to the internet 
+
+3. If any container is in host mode then it means that container does;nt get any bridge and it is directly connected
+to the host machine
+
+4. now if any container is in host mode then we dont have to expose the port but in bridge we have to expose the port
+
+...................................Docker volumes............................................
+
+1. When we stop a container it also deletes the code iside it to prevent that we have docker volumes which act as
+permanent storage in docker 
+
+2. Now how volumes are created we can mount a folder of our host machine with the container such that any data created in 
+by container will be saved inside the folder and this mounting is called volumes
+
+3. Now  if the container got deleted then the data inside the folder will remain secure since it was inside the host machine
+
+4. We can again do mounting to create a container with same data 
+
+5. docekr run -it -v /user/swakshgutpa/Desktop/newfolder : /home/abc node  (here is how we can mount a folder in a docker container)
+
+6. just change your directory to the abc if you add any folder in the container now then it will get added to the newFolder
+
+7. Now we can create our own custom volumes and later we can mount it to a container 
+
+
+
+

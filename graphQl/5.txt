@@ -1,0 +1,100 @@
+const { ApolloServer, gql } = require('apollo-server');
+const mongoose = require('mongoose');
+const connectDB = require('./db');
+const User = require('./User');
+
+// Connect to the database
+connectDB();
+
+const typeDefs = gql`
+  type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+  
+  type Query {
+    hello: String!
+    randomNumber: Int!
+    queryUsers: [User]!
+  }
+
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!): User!
+    updateUser(id: ID!, firstName: String, lastName: String, email: String): User!
+    deleteUser(id: ID!): User!
+  }
+`;
+
+const resolvers = {
+  Query: {
+    hello: () => 'Hello world!',
+    randomNumber: () => Math.round(Math.random() * 10),
+    queryUsers: async () => {
+      try {
+        return await User.find();
+      } catch (error) {
+        console.error(error);
+        throw new Error('Error fetching users');
+      }
+    },
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const { firstName, lastName, email } = args;
+      const newUser = new User({
+        firstName,
+        lastName,
+        email,
+      });
+      try {
+        return await newUser.save();
+      } catch (error) {
+        console.error(error);
+        throw new Error('Error adding user');
+      }
+    },
+    updateUser: async (parent, args) => {
+      const { id, firstName, lastName, email } = args;
+      try {
+        const updatedUser = await User.findByIdAndUpdate(
+          id,
+          { firstName, lastName, email },
+          { new: true, runValidators: true }
+        );
+        if (!updatedUser) {
+          throw new Error('User not found');
+        }
+        return updatedUser;
+      } catch (error) {
+        console.error(error);
+        throw new Error('Error updating user');
+      }
+    },
+    deleteUser: async (parent, args) => {
+      const { id } = args;
+      try {
+        const deletedUser = await User.findByIdAndDelete(id);
+        if (!deletedUser) {
+          throw new Error('User not found');
+        }
+        return deletedUser;
+      } catch (error) {
+        console.error(error);
+        throw new Error('Error deleting user');
+      }
+    },
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server
+  .listen({ port: 8080 })
+  .then(({ url }) => console.log(`GraphQL server running at ${url}`));
+
+  1. here we have  created a graphql server  which has queries and mutations for CRUD operations

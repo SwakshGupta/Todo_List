@@ -1,0 +1,50 @@
+' see the article from the medium for deeper understanding 
+
+
+1. GraphQL or “Graph Query Language” is, just as the name suggests, a query language for APIs.
+While SQL is a query language for managing relational databases, GraphQL is a query language that allows 
+the client (frontend) to request data from an API.
+
+
+2. 
+
+Schema: A GraphQL schema defines the data structure and relationships between different data types in your API. It acts like a blueprint, specifying what data is available and how it can be accessed.
+
+Queries: Clients write GraphQL queries to request specific data from the API. These queries are written in a human-readable format, similar to plain English.
+
+Mutations (Optional): GraphQL also allows for mutations, which are operations that modify data on the server (e.g., creating, updating, or deleting data).
+
+Resolvers: The server-side logic that retrieves and delivers data based on the incoming queries. Resolvers map specific fields in the schema to data sources (e.g., databases, external services).
+
+3. so basically we have to create a scheama of how our api is going to look like 
+
+This schema defines two data types: User and Post. A User has an id, name, email, and a list of posts.
+ A Post has an id, title, content, and an author
+
+
+4. now we have to write queries to retrive data from the server 
+This query retrieves a user's profile (including name, email, and posts) by their id
+
+5. Then we can do mutation to modify the data on the server mutation CreatePost($title: String!, $content: String!) {
+  createPost(title: $title, content: $content) {
+    id
+    title
+    content
+  }
+}
+
+This mutation creates a new post with the specified title and content.
+
+summary:
+
+ queries in GraphQL are a powerful way to request exactly the data you need in a single, efficient operation.
+  This allows for more precise and efficient data fetching compared to traditional REST APIs.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+ ........................Images and containers.........................
+
+ 1. You can think of images like a operating system and to run those images you need containers 
+
+ 2. We have to run images on these containers so we have a image and different containers now we can this image on multiple
+ containers
+
+ 3. If the image is not available in your local machinery then docker download that image from docker hub say you dont have 
+ node js or ubuntu image so it will download that image from docker hub 
+
+ 4. we can create a custom image for ourself which has docker nodejs redis and now we will run this image on a container
+ to run a image we will use container 
+
+ 5. docker container ls to show all the running container inside the docker 
+
+ 6. docker container ls-a to show all container inside the docker 
+
+ 7. docker stop (container_name) to stop the container from running 
+
+ 8. docker start (container_name) to start the container 
+
+ 9. docker exec -it (container_name) bash  if you want to switch your terminal to that container (-it means iteractive tdmap)
+
+ 10. docker images  (to get all the images in the docker)
+
+ 11. docker run -it (image_name) (The command docker run -it (image_name) is used to start a new container from a specified Docker image in an interactive mode)
+
+ if the image is not available then it will download it from docker hash 
+
+ 
